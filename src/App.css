@@ -32,34 +32,8 @@ body,
     padding-bottom: 2%;
 }
 
-.container-clicker {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-}
 
-.img-cat {
-    height: auto;
-    max-width: 60%;
-}
 
-.cat-counters {
-    width: 80%;
-    font-family: 'Anton SC', sans-serif;
-    text-align: center;
-    color: rgba(0, 0, 0, 0.7);
-    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
-    padding: 15px;
-    border-radius: 30px;
-    background-color: #ffe2e2;
-    border: transparent;
-}
-
-.cat-counters h1 {
-    font-size: 3em;
-}
 
 /* Seção responsiva para telas menores */
 @media (max-width: 600px) {

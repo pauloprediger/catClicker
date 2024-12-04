@@ -1,0 +1,72 @@
+[
+    {
+        "name": "Novelo de Lã",
+        "color": "#FFB3BA",
+        "numberOfCats": 0,
+        "priceOfCats": 15,
+        "meowsPerSecond": 0.1
+    },
+    {
+        "name": "Ratinho de brinquedo",
+        "color": "#FFDFBA",
+        "numberOfCats": 0,
+        "priceOfCats": 100,
+        "meowsPerSecond": 1
+    },
+    {
+        "name": "Arranhador",
+        "color": "#FFFFBA",
+        "numberOfCats": 0,
+        "priceOfCats": 1000,
+        "meowsPerSecond": 8
+    },
+    {
+        "name": "Laser",
+        "color": "#BAFFC9",
+        "numberOfCats": 0,
+        "priceOfCats": 12000,
+        "meowsPerSecond": 45
+    },
+    {
+        "name": "Catnip",
+        "color": "#BAE1FF",
+        "numberOfCats": 0,
+        "priceOfCats": 130000,
+        "meowsPerSecond": 250
+    },
+    {
+        "name": "Caixa de papelão",
+        "color": "#E6E6FA",
+        "numberOfCats": 0,
+        "priceOfCats": 1400000,
+        "meowsPerSecond": 100000
+    },
+    {
+        "name": "Gastinho Siames",
+        "color": "#FADADD",
+        "numberOfCats": 0,
+        "priceOfCats": 20000000,
+        "meowsPerSecond": 1000000
+    },
+    {
+        "name": "Gatinho Galactico",
+        "color": "#C5E1A5",
+        "numberOfCats": 0,
+        "priceOfCats": 100000000,
+        "meowsPerSecond": 10000000
+    },
+    {
+        "name": "Gato Multidimensional",
+        "color": "#B3E5FC",
+        "numberOfCats": 0,
+        "priceOfCats": 1000000000,
+        "meowsPerSecond": 100000000
+    },
+    {
+        "name": "Gatinho Onipotente",
+        "color": "#D1C4E9",
+        "numberOfCats": 0,
+        "priceOfCats": 10000000000,
+        "meowsPerSecond": 1000000000
+    }
+]

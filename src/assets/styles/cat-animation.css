@@ -12,11 +12,11 @@
   }
 
 /* Efeito de aumento de tamanho ao passar o mouse */
-.img-cat {
+.clickable-cat {
   transition: transform 0.3s ease;
 }
 
-.img-cat:hover {
+.clickable-cat:hover {
   transform: scale(1.1); /* Aumenta a imagem quando o mouse passa em cima */
 }
 

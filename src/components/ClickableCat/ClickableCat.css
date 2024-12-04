@@ -1,0 +1,13 @@
+.clickable-cat {
+    height: auto;
+    max-width: 60%;
+    height: auto;
+    cursor: pointer;
+}
+
+.clickable-cat-counter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
