@@ -13,10 +13,19 @@ import catImage from '/images/cat-images/cat.png';
 import kittenAudio from '/audio/kitten.mp3';
 
 // Definição inicial dos botões do jogo
-const initialButtonsState = gameData.map((button) => ({
-    ...button,
-    id: uuidv4(),
-}));
+
+const loadGameState = () => {
+    const savedMeowCount = localStorage.getItem('meowCount');
+    const savedButtonsGame = localStorage.getItem('buttonsGame');
+    
+    return {
+        meowCount: savedMeowCount ? parseInt(savedMeowCount, 10) : 0,
+        buttonsGame: savedButtonsGame ? JSON.parse(savedButtonsGame) : gameData.map((button) => ({
+            ...button,
+            id: uuidv4()
+        }))
+    }
+}
 
 // Reducer para gerenciar o estado dos botões
 const buttonsReducer = (state, action) => {
@@ -41,8 +50,11 @@ const buttonsReducer = (state, action) => {
 };
 
 function App() {
-    const [buttonsGame, dispatch] = useReducer(buttonsReducer, initialButtonsState);
-    const [meowCount, setMeowCount] = useState(0);
+
+    const { meowCount: initialMeowCount, buttonsGame: initialButtonsGame } = loadGameState();
+
+    const [buttonsGame, dispatch] = useReducer(buttonsReducer, initialButtonsGame); // Substitua `initialButtonsState` por `initialButtonsGame`
+    const [meowCount, setMeowCount] = useState(initialMeowCount);
     const audioRef = useRef(null);
 
     // Função para calcular o total de Meows por segundo, baseado nos gatos comprados
@@ -91,6 +103,12 @@ function App() {
         },
         [buttonsGame, meowCount]
     );
+    //
+    useEffect(() => {
+        console.log('Salvando estado no localStorage');
+        localStorage.setItem('meowCount', meowCount);
+        localStorage.setItem('buttonsGame', JSON.stringify(buttonsGame));
+    }, [meowCount, buttonsGame]);
 
     // Definindo as seções do jogo
     const definitionsSectionGame = useMemo(
