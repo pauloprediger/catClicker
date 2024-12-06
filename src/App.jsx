@@ -11,6 +11,7 @@ import './App.css';
 import './assets/styles/cat-animation.css';
 import catImage from '/images/cat-images/cat.png';
 import kittenAudio from '/audio/kitten.mp3';
+import SectionAchievements from './components/SectionAchievements';
 
 // Definição inicial dos botões do jogo
 
@@ -138,6 +139,10 @@ function App() {
                             kittenAudio={kittenAudio}
                         />
                     )}
+                    {sectionGame.name === 'menuClicker' && (
+                        <SectionAchievements/>
+                    )}
+
                     {sectionGame.name === 'shopClicker' && (
                         <ShopSection
                             buttonsGame={buttonsGame}
