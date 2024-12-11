@@ -17,7 +17,7 @@
 
 ## Próximas Melhorias
 - Adicionar mais upgrades e itens na loja.
-- Persistir o progresso do jogador utilizando LocalStorage ou APIs externas.
+- Melhorar interface de conquistas.
 
 ## Contribuição
 Sinta-se à vontade para abrir issues ou enviar PRs com sugestões e melhorias. Toda contribuição é bem-vinda!
