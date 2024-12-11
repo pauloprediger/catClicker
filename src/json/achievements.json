@@ -1,0 +1,249 @@
+[
+    {
+        "id": 1,
+        "title": "Novato no Novelo",
+        "description": "Você comprou o primeiro Novelo de Lã!",
+        "backgroundColor": "#FFB3BA"
+    },
+    {
+        "id": 2,
+        "title": "Gato Trançado",
+        "description": "Você comprou 10 Novelos de Lã!",
+        "backgroundColor": "#FFB3BA"
+    },
+    {
+        "id": 3,
+        "title": "Fã do Novelo",
+        "description": "Você comprou 100 Novelos de Lã!",
+        "backgroundColor": "#FFB3BA"
+    },
+    {
+        "id": 4,
+        "title": "Adoção do Novelo",
+        "description": "Você comprou 1000 Novelos de Lã!",
+        "backgroundColor": "#FFB3BA"
+    },
+    {
+        "id": 5,
+        "title": "Mestre do Novelo",
+        "description": "Você comprou 10000 Novelos de Lã!",
+        "backgroundColor": "#FFB3BA"
+    },
+    {
+        "id": 6,
+        "title": "Novelo Infinito",
+        "description": "Você comprou 100000 Novelos de Lã!",
+        "backgroundColor": "#FFB3BA"
+    },
+    {
+        "id": 7,
+        "title": "Ratinho Inicial",
+        "description": "Você comprou o primeiro Ratinho de brinquedo!",
+        "backgroundColor": "#FFDFBA"
+    },
+    {
+        "id": 8,
+        "title": "Gato Caçador",
+        "description": "Você comprou 10 Ratinhos de brinquedo!",
+        "backgroundColor": "#FFDFBA"
+    },
+    {
+        "id": 9,
+        "title": "Feliz Caçador",
+        "description": "Você comprou 100 Ratinhos de brinquedo!",
+        "backgroundColor": "#FFDFBA"
+    },
+    {
+        "id": 10,
+        "title": "Mestre Caçador",
+        "description": "Você comprou 1000 Ratinhos de brinquedo!",
+        "backgroundColor": "#FFDFBA"
+    },
+    {
+        "id": 11,
+        "title": "Caçador Supremo",
+        "description": "Você comprou 10000 Ratinhos de brinquedo!",
+        "backgroundColor": "#FFDFBA"
+    },
+    {
+        "id": 12,
+        "title": "Arranhador Básico",
+        "description": "Você comprou o primeiro Arranhador!",
+        "backgroundColor": "#FFFFBA"
+    },
+    {
+        "id": 13,
+        "title": "Gato Arranhador",
+        "description": "Você comprou 10 Arranhadores!",
+        "backgroundColor": "#FFFFBA"
+    },
+    {
+        "id": 14,
+        "title": "Arranhando Feliz",
+        "description": "Você comprou 100 Arranhadores!",
+        "backgroundColor": "#FFFFBA"
+    },
+    {
+        "id": 15,
+        "title": "Arranhe com Estilo",
+        "description": "Você comprou 1000 Arranhadores!",
+        "backgroundColor": "#FFFFBA"
+    },
+    {
+        "id": 16,
+        "title": "Mestre dos Arranhadores",
+        "description": "Você comprou 10000 Arranhadores!",
+        "backgroundColor": "#FFFFBA"
+    },
+    {
+        "id": 17,
+        "title": "Laser Inicial",
+        "description": "Você comprou o primeiro Laser!",
+        "backgroundColor": "#BAFFC9"
+    },
+    {
+        "id": 18,
+        "title": "Caçador de Luz",
+        "description": "Você comprou 10 Lasers!",
+        "backgroundColor": "#BAFFC9"
+    },
+    {
+        "id": 19,
+        "title": "Laser Supremo",
+        "description": "Você comprou 100 Lasers!",
+        "backgroundColor": "#BAFFC9"
+    },
+    {
+        "id": 20,
+        "title": "Mestre Laser",
+        "description": "Você comprou 1000 Lasers!",
+        "backgroundColor": "#BAFFC9"
+    },
+    {
+        "id": 21,
+        "title": "Catnip Básico",
+        "description": "Você comprou o primeiro Catnip!",
+        "backgroundColor": "#BAE1FF"
+    },
+    {
+        "id": 22,
+        "title": "Gato Alucinante",
+        "description": "Você comprou 10 Catnips!",
+        "backgroundColor": "#BAE1FF"
+    },
+    {
+        "id": 23,
+        "title": "Catnip Poderoso",
+        "description": "Você comprou 100 Catnips!",
+        "backgroundColor": "#BAE1FF"
+    },
+    {
+        "id": 24,
+        "title": "Catnip Supremo",
+        "description": "Você comprou 1000 Catnips!",
+        "backgroundColor": "#BAE1FF"
+    },
+    {
+        "id": 25,
+        "title": "Catnip Imortal",
+        "description": "Você comprou 10000 Catnips!",
+        "backgroundColor": "#BAE1FF"
+    },
+    {
+        "id": 26,
+        "title": "Caixa de Papelão Inicial",
+        "description": "Você comprou a primeira Caixa de papelão!",
+        "backgroundColor": "#E6E6FA"
+    },
+    {
+        "id": 27,
+        "title": "Gato na Caixa",
+        "description": "Você comprou 10 Caixas de papelão!",
+        "backgroundColor": "#E6E6FA"
+    },
+    {
+        "id": 28,
+        "title": "Caixa Gigante",
+        "description": "Você comprou 100 Caixas de papelão!",
+        "backgroundColor": "#E6E6FA"
+    },
+    {
+        "id": 29,
+        "title": "Caixa Dimensional",
+        "description": "Você comprou 1000 Caixas de papelão!",
+        "backgroundColor": "#E6E6FA"
+    },
+    {
+        "id": 30,
+        "title": "Caixa dos Deuses",
+        "description": "Você comprou 10000 Caixas de papelão!",
+        "backgroundColor": "#E6E6FA"
+    },
+    {
+        "id": 31,
+        "title": "Gatinho Básico",
+        "description": "Você comprou o primeiro Gatinho Siames!",
+        "backgroundColor": "#FADADD"
+    },
+    {
+        "id": 32,
+        "title": "Gatinho Evoluído",
+        "description": "Você comprou 10 Gatinhos Siameses!",
+        "backgroundColor": "#FADADD"
+    },
+    {
+        "id": 33,
+        "title": "Gatinho Master",
+        "description": "Você comprou 100 Gatinhos Siameses!",
+        "backgroundColor": "#FADADD"
+    },
+    {
+        "id": 34,
+        "title": "Gatinho Divino",
+        "description": "Você comprou 1000 Gatinhos Siameses!",
+        "backgroundColor": "#FADADD"
+    },
+    {
+        "id": 35,
+        "title": "Gatinho Supremo",
+        "description": "Você comprou 10000 Gatinhos Siameses!",
+        "backgroundColor": "#FADADD"
+    },
+    {
+        "id": 36,
+        "title": "Gatinho Galático Inicial",
+        "description": "Você comprou o primeiro Gatinho Galáctico!",
+        "backgroundColor": "#C5E1A5"
+    },
+    {
+        "id": 37,
+        "title": "Gatinho Estelar",
+        "description": "Você comprou 10 Gatinhos Galacticos!",
+        "backgroundColor": "#C5E1A5"
+    },
+    {
+        "id": 38,
+        "title": "Gatinho Cósmico",
+        "description": "Você comprou 100 Gatinhos Galacticos!",
+        "backgroundColor": "#C5E1A5"
+    },
+    {
+        "id": 39,
+        "title": "Gatinho Universal",
+        "description": "Você comprou 1000 Gatinhos Galacticos!",
+        "backgroundColor": "#C5E1A5"
+    },
+    {
+        "id": 40,
+        "title": "Gatinho Infinito",
+        "description": "Você comprou 10000 Gatinhos Galacticos!",
+        "backgroundColor": "#C5E1A5"
+    },
+    {
+        "id": 41,
+        "title": "Gato Multidimensional Básico",
+        "description": "Você comprou o primeiro Gato Multidimensional!",
+        "backgroundColor": "#B3E5FC"
+    }
+]
+

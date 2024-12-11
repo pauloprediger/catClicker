@@ -1,11 +1,11 @@
 import { useReducer, useRef, useCallback, useMemo, useEffect, useState } from 'react';
 import { SectionGame } from './components/SectionGame';
 import { v4 as uuidv4 } from 'uuid';
-import gameData from './json/gameData.json'
+import gameData from './json/gameData.json';
+import gameAchievements from './json/achievements.json';
 
 import ShopSection from './components/ShopSection';
 import ClickerSection from './components/ClickerSection';
-
 
 import './App.css';
 import './assets/styles/cat-animation.css';
@@ -18,15 +18,17 @@ import SectionAchievements from './components/SectionAchievements';
 const loadGameState = () => {
     const savedMeowCount = localStorage.getItem('meowCount');
     const savedButtonsGame = localStorage.getItem('buttonsGame');
-    
+
     return {
         meowCount: savedMeowCount ? parseInt(savedMeowCount, 10) : 0,
-        buttonsGame: savedButtonsGame ? JSON.parse(savedButtonsGame) : gameData.map((button) => ({
-            ...button,
-            id: uuidv4()
-        }))
-    }
-}
+        buttonsGame: savedButtonsGame
+            ? JSON.parse(savedButtonsGame)
+            : gameData.map((button) => ({
+                  ...button,
+                  id: uuidv4(),
+              })),
+    };
+};
 
 // Reducer para gerenciar o estado dos botões
 const buttonsReducer = (state, action) => {
@@ -51,7 +53,6 @@ const buttonsReducer = (state, action) => {
 };
 
 function App() {
-
     const { meowCount: initialMeowCount, buttonsGame: initialButtonsGame } = loadGameState();
 
     const [buttonsGame, dispatch] = useReducer(buttonsReducer, initialButtonsGame); // Substitua `initialButtonsState` por `initialButtonsGame`
@@ -128,7 +129,7 @@ function App() {
                     key={sectionGame.id}
                     name={sectionGame.name}
                     color={sectionGame.color}
-                    className={sectionGame.name === 'shopClicker' ? 'scrollable-section' : ''}
+                    className={sectionGame.name === 'menuClicker' || sectionGame.name === 'shopClicker' ? 'scrollable-section' : ''}
                 >
                     {sectionGame.name === 'clicker' && (
                         <ClickerSection
@@ -140,7 +141,7 @@ function App() {
                         />
                     )}
                     {sectionGame.name === 'menuClicker' && (
-                        <SectionAchievements/>
+                        <SectionAchievements achievements={gameAchievements} />
                     )}
 
                     {sectionGame.name === 'shopClicker' && (

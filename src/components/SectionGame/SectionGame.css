@@ -9,5 +9,5 @@
 
 .scrollable-section {
   overflow-y: auto; /* Habilita a rolagem vertical */
-  max-height: 100vh; /* Use uma altura relativa à viewport para melhor controle */
+  max-height: 100vh;
 }
