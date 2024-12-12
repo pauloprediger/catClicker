@@ -1,0 +1,20 @@
+.bodyAchievement {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.achievementCard {
+    position: absolute;
+    width: 18rem;
+    height: fit-content;
+    pointer-events: none; /* Impede que o card interfira na captura do mouse */
+    transition: opacity 0.2s ease; /* Adiciona transição suave */
+    z-index: 1000
+}
+
+.achievementContainer {
+    display: inline-block;
+    margin: 10px;
+}

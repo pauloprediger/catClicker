@@ -1,0 +1,39 @@
+.sectionAchievements {
+    background-color: lightblue;
+    display: flex;
+    height: fit-content;
+    flex-wrap: wrap; /* Permite que os itens quebrem linha */
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    gap: 16px 12px; /* Espaçamento horizontal e vertical */
+}
+
+.bodyAchievement {
+    height: fit-content;
+    border-radius: 50%;
+    padding: 0.3rem;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centraliza o conteúdo dentro do ícone */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adiciona uma leve sombra */
+}
+
+@media (max-width: 768px) {
+    .sectionAchievements {
+        gap: 12px 8px; /* Ajusta espaçamento horizontal e vertical para telas menores */
+        padding: 8px; /* Reduz o padding */
+    }
+
+    .bodyAchievement {
+        width: 40px;
+        height: 40px; /* Ícones menores em telas pequenas */
+    }
+}
+
+@media (max-width: 480px) {
+    .sectionAchievements {
+        flex-direction: column; /* Alinha itens em coluna em telas muito pequenas */
+        align-items: center; /* Centraliza os itens verticalmente */
+        gap: 10px; /* Ajusta o espaçamento vertical */
+    }
+}

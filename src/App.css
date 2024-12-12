@@ -30,6 +30,11 @@ body,
     padding-bottom: 2%;
 }
 
+.navSectionGame {
+    display: flex;
+    width: 100%;
+}
+
 
 
 

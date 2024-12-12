@@ -9,7 +9,7 @@ export const SectionGame = ({ name, color, children }) => {
     const lighterColor = lightenColor(color, 0.2);
 
 	const sectionStyle = {
-		background: (name === 'clicker' || name === 'menuClicker')
+		background: (name === 'clicker' || name === 'menuClicker' || 'shopClicker')
 			? `repeating-linear-gradient(45deg, ${color}, ${color} 10px, ${lighterColor} 10px, ${lighterColor} 20px)`
 			: color, // Para as outras seções, aplica apenas a cor de fundo
 	};

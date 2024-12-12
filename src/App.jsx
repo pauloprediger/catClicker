@@ -1,8 +1,8 @@
 import { useReducer, useRef, useCallback, useMemo, useEffect, useState } from 'react';
 import { SectionGame } from './components/SectionGame';
 import { v4 as uuidv4 } from 'uuid';
-import gameData from './json/gameData.json';
-import gameAchievements from './json/achievements.json';
+import gameData from './mocks/gameData.json';
+import gameAchievements from './mocks/achievements.json';
 
 import ShopSection from './components/ShopSection';
 import ClickerSection from './components/ClickerSection';
@@ -129,7 +129,11 @@ function App() {
                     key={sectionGame.id}
                     name={sectionGame.name}
                     color={sectionGame.color}
-                    className={sectionGame.name === 'menuClicker' || sectionGame.name === 'shopClicker' ? 'scrollable-section' : ''}
+                    className={
+                        sectionGame.name === 'menuClicker' || sectionGame.name === 'shopClicker'
+                            ? 'scrollable-section'
+                            : ''
+                    }
                 >
                     {sectionGame.name === 'clicker' && (
                         <ClickerSection
@@ -141,7 +145,14 @@ function App() {
                         />
                     )}
                     {sectionGame.name === 'menuClicker' && (
-                        <SectionAchievements achievements={gameAchievements} />
+                        <>
+                            <nav className='navSectionGame'>
+                                <button>Conquistas</button>
+                                <button>Estatísticas</button>
+                                <button>Opções</button>
+                            </nav>
+                            <SectionAchievements achievements={gameAchievements} />
+                        </>
                     )}
 
                     {sectionGame.name === 'shopClicker' && (

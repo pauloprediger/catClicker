@@ -3,8 +3,8 @@
   border-image: url('./images/border/border.png') 10 repeat; 
   flex: 1;
   display: flex;
-  /*align-items: center;*/
   justify-content: center;
+  flex-direction: column;
 }
 
 .scrollable-section {
