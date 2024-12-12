@@ -9,7 +9,6 @@
 body,
 #root {
     width: 100vw;
-    height: 100vh;
 }
 
 .bodyGame {
@@ -39,7 +38,6 @@ body,
     .bodyGame {
         flex-direction: column; /* Muda a direção para coluna */
         overflow-y: auto; /* Habilita a rolagem vertical */
-        height: auto; /* Ajusta a altura para permitir rolagem */
     }
 
     .buttonContainer {
@@ -49,6 +47,6 @@ body,
 
     /* Altura mínima para a seção do meio */
     .sectionGame {
-        min-height: 200px; /* Ajuste o valor conforme necessário */
+        min-height: 33% /* Ajuste o valor conforme necessário */
     }
 }
