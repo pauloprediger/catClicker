@@ -19,7 +19,6 @@ const AchievementIcon = ({ achievement }) => {
         } else {
             window.removeEventListener('mousemove', handleMouseMove);
         }
-
         return () => {
             window.removeEventListener('mousemove', handleMouseMove);
         };
@@ -29,8 +28,14 @@ const AchievementIcon = ({ achievement }) => {
         <div className="achievementContainer">
             <div
                 className="bodyAchievement"
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
+                onMouseEnter={(e) => {
+                    setIsHovered(true);
+                    setMousePosition({ x: e.clientX, y: e.clientY }); // Coordenadas iniciais
+                }}
+                onMouseLeave={() => {
+                    setIsHovered(false);
+                    setMousePosition({ x: 0, y: 0 }); // Reseta coordenadas
+                }}
                 style={{ backgroundColor: achievement.backgroundColor }} // Cor de fundo do ícone
             >
                 <CiTrophy size={40} />
@@ -42,6 +47,9 @@ const AchievementIcon = ({ achievement }) => {
                     style={{
                         top: mousePosition.y + 10, // Ajuste para a posição do mouse
                         left: mousePosition.x + 10, // Ajuste para a posição do mouse
+                        position: 'absolute', // Garante que o card seja posicionado corretamente
+                        zIndex: 999, // Fica acima de outros elementos
+                        pointerEvents: 'none', // Não interfere nos eventos do mouse
                     }}
                 >
                     <Card.Header>{achievement.title}</Card.Header>

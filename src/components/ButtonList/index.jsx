@@ -1,10 +1,11 @@
 import React from 'react';
 import './ButtonList.css';
 import ButtonGame from '../ButtonGame';
+import Stack from 'react-bootstrap/Stack';
 
 const ButtonList = ({buttonsGame, handleButtonClick}) => {
     return (
-        <div className="buttonContainer scrollable-section">
+        <Stack gap={2} className="col-md-12 mx-auto buttonContainer scrollable-section ">
             {buttonsGame.map((buttonGame, index) => {
                 const canShow = index === 0 || buttonsGame[index - 1].numberOfCats > 0;
                 return canShow ? (
@@ -19,7 +20,7 @@ const ButtonList = ({buttonsGame, handleButtonClick}) => {
                     />
                 ) : null;
             })}
-        </div>
+        </Stack>
     );
 };
 export default ButtonList;
