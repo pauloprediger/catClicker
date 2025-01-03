@@ -1,13 +1,33 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import './ButtonGame.css';
 import { PiCatThin } from 'react-icons/pi';
 import Button from 'react-bootstrap/Button';
+import { ButtonContext } from '../../context/ButtonContext';  // Importando o contexto dos botões
+import { MeowContext } from '../../context/MeowContext';  // Importando o contexto dos Meows
 
-const ButtonGame = ({ name, color, number, price, onClick, className }) => {
+const ButtonGame = ({ name, color, className }) => {
+    const { state: buttonState, dispatch: buttonDispatch } = useContext(ButtonContext); // Acessando o estado e dispatch do ButtonContext
+    const { state: meowState, dispatch: meowDispatch } = useContext(MeowContext);  // Acessando o estado e dispatch do MeowContext
+
+    const button = buttonState.buttonsGame.find((btn) => btn.name === name);
+
+    if (!button) return null; 
+    const { id, number, price } = button;
+
+    
+    const handleClick = () => {
+        // Atualiza o número de compras do botão
+        buttonDispatch({ type: 'UPDATE_BUTTON', payload: { id, number: number + 1, price } });
+
+        // Incrementa a contagem de Meows
+        meowDispatch({ type: 'INCREMENT_MEOW' });
+    };
+
     const buttonStyle = {
         backgroundColor: color,
     };
+
     return (
         <div className="d-grid gap-2">
             <Button
@@ -15,7 +35,7 @@ const ButtonGame = ({ name, color, number, price, onClick, className }) => {
                 size="lg"
                 style={buttonStyle}
                 className={`buttonGame ${className}`}
-                onClick={onClick}
+                onClick={handleClick} // Chamando a função handleClick
             >
                 <div className="button-content">
                     <div className="info">
@@ -36,9 +56,7 @@ const ButtonGame = ({ name, color, number, price, onClick, className }) => {
 ButtonGame.propTypes = {
     name: PropTypes.string.isRequired,
     color: PropTypes.string.isRequired,
-    number: PropTypes.number.isRequired,
-    price: PropTypes.number.isRequired,
-    onClick: PropTypes.func.isRequired,
+    className: PropTypes.string,
 };
 
 export default ButtonGame;
