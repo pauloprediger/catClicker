@@ -1,31 +1,40 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
+import { ButtonContext } from '../../context/ButtonContext';
+import { MeowContext } from '../../context/MeowContext';
+import Button from 'react-bootstrap/Button';
 import './ButtonGame.css';
 import { PiCatThin } from 'react-icons/pi';
-import Button from 'react-bootstrap/Button';
-import { ButtonContext } from '../../context/ButtonContext';  // Importando o contexto dos botões
-import { MeowContext } from '../../context/MeowContext';  // Importando o contexto dos Meows
 
-const ButtonGame = ({ name, color, className }) => {
-    const { state: buttonState, dispatch: buttonDispatch } = useContext(ButtonContext); // Acessando o estado e dispatch do ButtonContext
-    const { state: meowState, dispatch: meowDispatch } = useContext(MeowContext);  // Acessando o estado e dispatch do MeowContext
+const ButtonGame = ({ id, className }) => {
+    const { state: buttonState, dispatch: buttonDispatch } = useContext(ButtonContext);
+    const { state: meowState, dispatch: meowDispatch } = useContext(MeowContext);
 
-    const button = buttonState.buttonsGame.find((btn) => btn.name === name);
+    const button = buttonState.buttonsGame.find((btn) => btn.id === id);
+    if (!button) return null;
 
-    if (!button) return null; 
-    const { id, number, price } = button;
+    const { name, color, number, price, incrementPerSecond } = button;
 
-    
     const handleClick = () => {
-        // Atualiza o número de compras do botão
-        buttonDispatch({ type: 'UPDATE_BUTTON', payload: { id, number: number + 1, price } });
+        console.log('Incrementando meowsPerSecond:', incrementPerSecond); // Log para depuração
+        if (meowState.meowCount < price) {
+            return;
+        }
 
-        // Incrementa a contagem de Meows
-        meowDispatch({ type: 'INCREMENT_MEOW' });
-    };
+        // Atualiza o preço com base em um fator de crescimento
+        const updatedPrice = Math.ceil(price * 1.15);
 
-    const buttonStyle = {
-        backgroundColor: color,
+        // Atualiza o número de Meows (diminuindo o valor do botão)
+        meowDispatch({ type: 'INCREMENT_MEOW', payload: -price });
+
+        // Atualiza o número de botões comprados e o preço do botão
+        buttonDispatch({
+            type: 'UPDATE_BUTTON',
+            payload: { id, number: number + 1, price: updatedPrice },
+        });
+
+        // Atualiza a quantidade de Meows por segundo, se aplicável
+        meowDispatch({ type: 'INCREMENT_MEOWS_PER_SECOND', payload: incrementPerSecond });
     };
 
     return (
@@ -33,15 +42,15 @@ const ButtonGame = ({ name, color, className }) => {
             <Button
                 variant="primary"
                 size="lg"
-                style={buttonStyle}
+                style={{ backgroundColor: color }}
                 className={`buttonGame ${className}`}
-                onClick={handleClick} // Chamando a função handleClick
+                onClick={handleClick}
             >
                 <div className="button-content">
                     <div className="info">
                         <h2 className="cat-name">{name}</h2>
                         <p className="cat-icon">
-                            <PiCatThin className="icon" />: {price}
+                            <PiCatThin className="icon" />: {price} Meows
                         </p>
                     </div>
                     <div className="number-container">
@@ -54,8 +63,7 @@ const ButtonGame = ({ name, color, className }) => {
 };
 
 ButtonGame.propTypes = {
-    name: PropTypes.string.isRequired,
-    color: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
     className: PropTypes.string,
 };
 

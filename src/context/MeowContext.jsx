@@ -4,8 +4,8 @@ import { createContext, useReducer, useContext, useEffect } from 'react';
 export const MeowContext = createContext();
 
 const initialState = {
-    meowCount: parseInt(localStorage.getItem('meowCount')) || 0, // Lê o valor do localStorage ou 0
-    meowsPerSecond: parseInt(localStorage.getItem('meowsPerSecond')) || 0, // Inicializado com 0 ou valor salvo
+    meowCount: parseFloat(localStorage.getItem('meowCount')) || 0, // Lê o valor do localStorage ou 0 como fallback
+    meowsPerSecond: parseFloat(localStorage.getItem('meowsPerSecond')) || 0, // Alterado para parseFloat
 };
 
 export const meowReducer = (state, action) => {
@@ -13,12 +13,12 @@ export const meowReducer = (state, action) => {
         case 'INCREMENT_MEOW':
             return {
                 ...state,
-                meowCount: state.meowCount + (action.payload || 1), // Incrementa o contador de meows
+                meowCount: state.meowCount + (action.payload || 1),
             };
         case 'INCREMENT_MEOWS_PER_SECOND':
             return {
                 ...state,
-                meowsPerSecond: state.meowsPerSecond + 1, // Incrementa meows por segundo
+                meowsPerSecond: state.meowsPerSecond + (action.payload || 0),
             };
         default:
             return state;
@@ -28,22 +28,22 @@ export const meowReducer = (state, action) => {
 export const MeowProvider = ({ children }) => {
     const [state, dispatch] = useReducer(meowReducer, initialState);
 
-    // Salva os valores no localStorage sempre que mudarem
+    // Atualiza o localStorage sempre que o estado mudar
     useEffect(() => {
-        localStorage.setItem('meowCount', state.meowCount);
-        localStorage.setItem('meowsPerSecond', state.meowsPerSecond);
-    }, [state.meowCount, state.meowsPerSecond]);
+        localStorage.setItem('meowCount', state.meowCount.toFixed(2));
+        localStorage.setItem('meowsPerSecond', state.meowsPerSecond.toFixed(2));
+    }, [state.meowCount, state.meowsPerSecond]); // A cada alteração no estado, atualiza o localStorage
 
-    // Incrementa o contador de meows com base nos meows por segundo
+    // Atualiza os Meows a cada segundo se meowsPerSecond for maior que 0
     useEffect(() => {
         const interval = setInterval(() => {
             if (state.meowsPerSecond > 0) {
                 dispatch({ type: 'INCREMENT_MEOW', payload: state.meowsPerSecond });
             }
-        }, 1000); // Atualiza a cada segundo
+        }, 1000);
 
-        return () => clearInterval(interval); // Limpa o intervalo quando o componente desmontar
-    }, [state.meowsPerSecond]);
+        return () => clearInterval(interval); // Limpa o intervalo quando o componente for desmontado
+    }, [state.meowsPerSecond]); // Certifique-se de que o intervalo seja atualizado conforme necessário
 
     return <MeowContext.Provider value={{ state, dispatch }}>{children}</MeowContext.Provider>;
 };
