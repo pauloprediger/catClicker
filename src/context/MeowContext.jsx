@@ -1,4 +1,5 @@
-import { createContext, useReducer, useContext, useEffect } from 'react';
+import { createContext, useReducer, useContext, useEffect, useRef } from 'react';
+import resources from '@/config/resources.js'; // Importa os recursos
 
 // Contexto para o contador de Meows
 export const MeowContext = createContext();
@@ -27,6 +28,13 @@ export const meowReducer = (state, action) => {
 
 export const MeowProvider = ({ children }) => {
     const [state, dispatch] = useReducer(meowReducer, initialState);
+    const audioRef = useRef(new Audio(resources.audio.kitten)); // Usa o recurso do arquivo de configuração
+
+    const playMeowSound = () => {
+        audioRef.current.play().catch((error) => {
+            console.error('Erro ao reproduzir o áudio:', error);
+        });
+    };
 
     // Atualiza o localStorage sempre que o estado mudar
     useEffect(() => {
@@ -45,8 +53,9 @@ export const MeowProvider = ({ children }) => {
         return () => clearInterval(interval); // Limpa o intervalo quando o componente for desmontado
     }, [state.meowsPerSecond]); // Certifique-se de que o intervalo seja atualizado conforme necessário
 
-    return <MeowContext.Provider value={{ state, dispatch }}>{children}</MeowContext.Provider>;
+    return <MeowContext.Provider value={{ state, dispatch, playMeowSound }}>{children}</MeowContext.Provider>;
 };
 
 export const useMeowState = () => useContext(MeowContext).state;
 export const useMeowDispatch = () => useContext(MeowContext).dispatch;
+export const useMeowSound = () => useContext(MeowContext).playMeowSound;

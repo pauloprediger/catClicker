@@ -1,7 +1,6 @@
 import { createContext, useReducer, useContext, useEffect } from 'react';
-import gameData from '../mocks/gameData.json'; // Supondo que você tem um arquivo JSON com os dados iniciais
+import gameData from '../mocks/gameData.json'; // Importa os dados do jogo
 import { v4 as uuidv4 } from 'uuid';
-
 
 // Contexto para os botões do jogo
 export const ButtonContext = createContext();
@@ -27,7 +26,7 @@ const buttonReducer = (state, action) => {
             return {
                 buttonsGame: state.buttonsGame.map((button) =>
                     button.id === action.payload.id
-                        ? { ...button, ...action.payload } // Atualiza o botão específico
+                        ? { ...button, ...action.payload } // Atualiza o botão com os novos dados
                         : button
                 ),
             };
@@ -47,11 +46,7 @@ export const ButtonProvider = ({ children }) => {
         localStorage.setItem('buttonsGame', JSON.stringify(state.buttonsGame));
     }, [state.buttonsGame]);
 
-    return (
-        <ButtonContext.Provider value={{ state, dispatch }}>
-            {children}
-        </ButtonContext.Provider>
-    );
+    return <ButtonContext.Provider value={{ state, dispatch }}>{children}</ButtonContext.Provider>;
 };
 
 // Custom hooks para acessar o estado e o dispatch

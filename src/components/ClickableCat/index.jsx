@@ -1,20 +1,16 @@
-import React, { useCallback, useRef } from 'react';
-import PropTypes from 'prop-types';
+import React, { useCallback } from 'react';
 import './ClickableCat.css';
 import '../../assets/styles/cat-animation.css';
-import { useMeowDispatch } from '../../context/MeowContext'; // Importa o hook para o contexto
+import { useMeowDispatch, useMeowSound } from '../../context/MeowContext'; // Importa o som do contexto
+import resources from '../../config/resources'; // Importa os recursos
 
-const ClickableCat = ({ imageSrc, audioSrc }) => {
-    const dispatch = useMeowDispatch(); // Obtém o dispatch do contexto
-    const audioRef = useRef(null);
+const ClickableCat = () => {
+    const dispatch = useMeowDispatch();
+    const playMeowSound = useMeowSound(); // Obtém a função para tocar o som
 
     const handleCatClick = useCallback(() => {
         dispatch({ type: 'INCREMENT_MEOW' });
-
-        // Reproduz o áudio do gato
-        if (audioRef.current) {
-            audioRef.current.play();
-        }
+        playMeowSound(); // Toca o som ao clicar no gato
 
         // Adiciona a animação de pulsar no gato
         const catElement = document.querySelector('.clickable-cat');
@@ -24,19 +20,13 @@ const ClickableCat = ({ imageSrc, audioSrc }) => {
                 catElement.classList.remove('pulsing');
             }, 800);
         }
-    }, [dispatch]);
+    }, [dispatch, playMeowSound]);
 
     return (
         <div className="clickable-cat-counter">
-            <img className="clickable-cat" src={imageSrc} alt="Cat" onClick={handleCatClick} />
-            <audio ref={audioRef} src={audioSrc} />
+            <img className="clickable-cat" src={resources.images.cat} alt="Cat" onClick={handleCatClick} />
         </div>
     );
-};
-
-ClickableCat.propTypes = {
-    imageSrc: PropTypes.string.isRequired, // URL da imagem do gato
-    audioSrc: PropTypes.string.isRequired, // URL do áudio do miado
 };
 
 export default ClickableCat;
