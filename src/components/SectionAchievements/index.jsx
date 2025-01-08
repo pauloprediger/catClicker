@@ -12,8 +12,8 @@ const SectionAchievements = () => {
 
     return (
         <div className="sectionAchievements">
-            {achievements.map((achievement) => (
-                <AchievementIcon key={achievement.id} achievement={achievement} />
+            {achievements.map((achievement, index) => (
+                <AchievementIcon key={index} achievement={achievement} />
             ))}
         </div>
     );

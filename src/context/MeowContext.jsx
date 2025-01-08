@@ -1,5 +1,5 @@
 import { createContext, useReducer, useContext, useEffect, useRef } from 'react';
-import resources from '../config/resources'; // Importa os recursos
+import kittenSound from '/audio/kitten.mp3';
 
 // Contexto para o contador de Meows
 export const MeowContext = createContext();
@@ -28,7 +28,7 @@ export const meowReducer = (state, action) => {
 
 export const MeowProvider = ({ children }) => {
     const [state, dispatch] = useReducer(meowReducer, initialState);
-    const audioRef = useRef(new Audio(resources.audio.kitten)); // Usa o recurso do arquivo de configuração
+    const audioRef = useRef(new Audio(kittenSound)); // Usa o recurso do arquivo de configuração
 
     const playMeowSound = () => {
         audioRef.current.play().catch((error) => {

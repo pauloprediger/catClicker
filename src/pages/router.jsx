@@ -1,23 +1,22 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 import MainGame from './MainGame'; // Tela principal do jogo
 import NotFound from './NotFound'; // Página de erro 404
 
 function AppRouter() {
     return (
-        <BrowserRouter>
-            <Switch>
-                <Router>
-                    <Routes>
-                        {/* Rota principal do jogo */}
-                        <Route path="/" element={<MainGame />} />
+        <BrowserRouter basename="/catClicker/">
+            <Routes>
+                {/* Página inicial */}
+                <Route path="/" element={<MainGame />} />
 
-                        {/* Rota para páginas não encontradas */}
-                        <Route path="*" element={<NotFound />} />
-                    </Routes>
-                </Router>
-            </Switch>
+                {/* Página 404 */}
+                <Route path="/404" element={<NotFound />} />
+
+                {/* Qualquer outra rota irá redirecionar para a página 404 */}
+                <Route path="*" element={<Navigate to="/404" />} />
+            </Routes>
         </BrowserRouter>
     );
 }

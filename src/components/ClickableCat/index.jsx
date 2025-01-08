@@ -2,9 +2,9 @@ import React, { useCallback } from 'react';
 import './ClickableCat.css';
 import '../../assets/styles/cat-animation.css';
 import { useMeowDispatch, useMeowSound } from '../../context/MeowContext'; // Importa o som do contexto
-import resources from '../../config/resources'; 
+import catImage from '/images/cat-images/cat.png'; 
 
-const ClickableCat = () => {
+const  ClickableCat = () => {
     const dispatch = useMeowDispatch();
     const playMeowSound = useMeowSound(); // Obtém a função para tocar o som
 
@@ -24,7 +24,7 @@ const ClickableCat = () => {
 
     return (
         <div className="clickable-cat-counter">
-            <img className="clickable-cat" src={resources.images.cat} alt="Cat" onClick={handleCatClick} />
+            <img className="clickable-cat" src={catImage} alt="Cat" onClick={handleCatClick} />
         </div>
     );
 };
