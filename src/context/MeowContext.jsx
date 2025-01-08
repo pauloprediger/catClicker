@@ -1,5 +1,5 @@
 import { createContext, useReducer, useContext, useEffect, useRef } from 'react';
-import resources from '@/config/resources.js'; // Importa os recursos
+import resources from '../config/resources'; // Importa os recursos
 
 // Contexto para o contador de Meows
 export const MeowContext = createContext();

@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import './ClickableCat.css';
 import '../../assets/styles/cat-animation.css';
 import { useMeowDispatch, useMeowSound } from '../../context/MeowContext'; // Importa o som do contexto
-import resources from '../../config/resources'; // Importa os recursos
+import resources from '../../config/resources'; 
 
 const ClickableCat = () => {
     const dispatch = useMeowDispatch();

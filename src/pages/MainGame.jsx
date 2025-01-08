@@ -1,19 +1,15 @@
 import React from 'react';
+import { MeowProvider } from '../context/MeowContext';
+import { ButtonProvider } from '../context/ButtonContext';
+import { AchievementProvider } from '../context/AchievementContext';
 
-import { MeowProvider } from './context/MeowContext';
-import { ButtonProvider } from './context/ButtonContext';
-import { AchievementProvider } from './context/AchievementContext';
+import SectionGame from '../components/SectionGame'; 
+import ClickerSection from '../components/ClickerSection';
+import MenuGame from '../components/MenuGame';
+import SectionAchievements from '../components/SectionAchievements';
+import ShopSection from '../components/ShopSection';
 
-
-import SectionGame from './components/SectionGame';
-import ShopSection from './components/ShopSection';
-import ClickerSection from './components/ClickerSection';
-import SectionAchievements from './components/SectionAchievements';
-import MenuGame from './components/MenuGame';
-
-import './App.css';
-
-const App = () => {
+function MainGame() {
     return (
         <MeowProvider>
             <ButtonProvider>
@@ -35,6 +31,6 @@ const App = () => {
             </ButtonProvider>
         </MeowProvider>
     );
-};
+}
 
-export default App;
+export default MainGame;
