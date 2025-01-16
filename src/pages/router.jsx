@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 import MainGame from './MainGame'; // Tela principal do jogo
-import NotFound from './NotFound'; // Página de erro 404
+import NotFound from './NotFound/NotFound'; // Página de erro 404
 
 function AppRouter() {
     return (
