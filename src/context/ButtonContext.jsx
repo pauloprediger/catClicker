@@ -8,15 +8,19 @@ export const ButtonContext = createContext();
 // Função para carregar o estado inicial
 const loadInitialState = () => {
     const savedData = localStorage.getItem('buttonsGame');
-    if (savedData) {
-        return JSON.parse(savedData); // Retorna os dados salvos
-    }
-    // Se não houver dados salvos, inicializa com os dados do JSON
-    return gameData.map((button) => ({
+    const savedOperation = localStorage.getItem('operation');
+    
+    // Carrega os dados dos botões ou usa os dados padrão
+    const initialButtons = savedData ? JSON.parse(savedData) : gameData.map((button) => ({
         ...button,
         id: button.id || uuidv4(), // Gera um ID único se não houver
         number: 0, // Começa com 0 de quantidade
     }));
+    
+    // Se não houver operação salva, define como 'increment' (compra) como padrão
+    const initialOperation = savedOperation ? savedOperation : 'increment';
+
+    return { buttonsGame: initialButtons, operation: initialOperation };
 };
 
 // Redutor para atualizar o estado dos botões
@@ -30,6 +34,11 @@ const buttonReducer = (state, action) => {
                         : button
                 ),
             };
+        case 'SET_OPERATION':
+            return {
+                ...state,
+                operation: action.payload, // Atualiza a operação (increment ou decrement)
+            };
         default:
             return state;
     }
@@ -37,14 +46,13 @@ const buttonReducer = (state, action) => {
 
 // Provedor do contexto para os botões
 export const ButtonProvider = ({ children }) => {
-    const [state, dispatch] = useReducer(buttonReducer, {
-        buttonsGame: loadInitialState(), // Carrega o estado inicial
-    });
+    const [state, dispatch] = useReducer(buttonReducer, loadInitialState()); // Carrega o estado inicial
 
-    // Salva o estado dos botões no localStorage sempre que ele mudar
+    // Salva o estado dos botões e a operação no localStorage sempre que ele mudar
     useEffect(() => {
         localStorage.setItem('buttonsGame', JSON.stringify(state.buttonsGame));
-    }, [state.buttonsGame]);
+        localStorage.setItem('operation', state.operation); // Salva a operação
+    }, [state.buttonsGame, state.operation]);
 
     return <ButtonContext.Provider value={{ state, dispatch }}>{children}</ButtonContext.Provider>;
 };

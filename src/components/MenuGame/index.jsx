@@ -6,7 +6,7 @@ import './MenuGame.css';
 
 const MenuGame = () => {
     return (
-        <Navbar className='bg_personal' data-bs-theme="dark">
+        <Navbar className='bg_personal border rounded-bottom' data-bs-theme="dark">
             <Container>
                 <Navbar.Brand href="#home"></Navbar.Brand>
                 <Nav className="me-auto">

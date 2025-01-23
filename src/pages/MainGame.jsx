@@ -5,6 +5,7 @@ import ClickerSection from '../components/ClickerSection';
 import MenuGame from '../components/MenuGame';
 import SectionAchievements from '../components/SectionAchievements';
 import ShopSection from '../components/ShopSection';
+import BuyAndSellSection from '../components/BuyAndSellSection';
 
 function MainGame() {
     return (
@@ -18,6 +19,7 @@ function MainGame() {
                 <SectionAchievements />
             </SectionGame>
             <SectionGame name="shopClicker" color="#6882B3">
+                <BuyAndSellSection />
                 <ShopSection />
             </SectionGame>
         </div>

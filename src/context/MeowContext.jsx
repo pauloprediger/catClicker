@@ -11,10 +11,10 @@ const initialState = {
 
 export const meowReducer = (state, action) => {
     switch (action.type) {
-        case 'INCREMENT_MEOW':
+        case 'UPDATE_MEOWS':
             return {
                 ...state,
-                meowCount: state.meowCount + (action.payload || 1),
+                meowCount: Math.max(0, state.meowCount + (action.payload || 0)), // Incrementa ou decrementa com base no valor
             };
         case 'INCREMENT_MEOWS_PER_SECOND':
             return {
@@ -46,7 +46,7 @@ export const MeowProvider = ({ children }) => {
     useEffect(() => {
         const interval = setInterval(() => {
             if (state.meowsPerSecond > 0) {
-                dispatch({ type: 'INCREMENT_MEOW', payload: state.meowsPerSecond });
+                dispatch({ type: 'UPDATE_MEOWS', payload: state.meowsPerSecond });
             }
         }, 1000);
 

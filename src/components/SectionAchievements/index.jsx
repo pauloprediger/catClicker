@@ -11,7 +11,7 @@ const SectionAchievements = () => {
     }
 
     return (
-        <div className="sectionAchievements">
+        <div className="sectionAchievements border-primary">
             {achievements.map((achievement, index) => (
                 <AchievementIcon key={index} achievement={achievement} />
             ))}

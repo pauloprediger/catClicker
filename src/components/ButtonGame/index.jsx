@@ -16,25 +16,32 @@ const ButtonGame = ({ id, className }) => {
     const { name, color, number, price, incrementPerSecond } = button;
 
     const handleClick = () => {
-        console.log('Incrementando meowsPerSecond:', incrementPerSecond); // Log para depuração
-        if (meowState.meowCount < price) {
-            return;
+        if (buttonState.operation === 'increment') {
+            if (meowState.meowCount < price) {
+                return;
+            }
+
+            const updatedPrice = Math.ceil(price * 1.15);
+            meowDispatch({ type: 'UPDATE_MEOWS', payload: -price });
+            buttonDispatch({
+                type: 'UPDATE_BUTTON',
+                payload: { id, number: number + 1, price: updatedPrice },
+            });
+
+            meowDispatch({ type: 'INCREMENT_MEOWS_PER_SECOND', payload: incrementPerSecond });
+
+        } else if (buttonState.operation === 'decrement') {
+            if (number === 0) return;
+
+            const updatedPrice = Math.ceil(price * 0.85);
+            meowDispatch({ type: 'UPDATE_MEOWS', payload: price });
+            buttonDispatch({
+                type: 'UPDATE_BUTTON',
+                payload: { id, number: number - 1, price: updatedPrice },
+            });
+
+            meowDispatch({ type: 'DECREMENT_MEOWS_PER_SECOND', payload: incrementPerSecond });
         }
-
-        // Atualiza o preço com base em um fator de crescimento
-        const updatedPrice = Math.ceil(price * 1.15);
-
-        // Atualiza o número de Meows (diminuindo o valor do botão)
-        meowDispatch({ type: 'INCREMENT_MEOW', payload: -price });
-
-        // Atualiza o número de botões comprados e o preço do botão
-        buttonDispatch({
-            type: 'UPDATE_BUTTON',
-            payload: { id, number: number + 1, price: updatedPrice },
-        });
-
-        // Atualiza a quantidade de Meows por segundo, se aplicável
-        meowDispatch({ type: 'INCREMENT_MEOWS_PER_SECOND', payload: incrementPerSecond });
     };
 
     return (

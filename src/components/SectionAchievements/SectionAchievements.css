@@ -1,5 +1,7 @@
 .sectionAchievements {
     background-color: lightblue;
+    border: 1px solid;
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2);
     display: flex;
     height: fit-content;
     flex-wrap: wrap; /* Permite que os itens quebrem linha */
