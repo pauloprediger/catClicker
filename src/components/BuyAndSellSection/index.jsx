@@ -6,7 +6,6 @@ const BuyAndSellSection = () => {
     // Estado local para controlar a operação (compra ou venda)
     const [operation, setOperation] = useState('increment'); // 'increment' é o estado inicial
     const [quantity, setQuantity] = useState(1); // Estado da quantidade (1, 10, 100)
-    const { dispatch: buttonDispatch } = useContext(ButtonContext);
 
     const handleBuyClick = () => {
         setOperation('increment'); // Compra: incrementa
@@ -19,15 +18,6 @@ const BuyAndSellSection = () => {
     const handleQuantityClick = (qty) => {
         setQuantity(qty); // Atualiza a quantidade de botões a serem comprados ou vendidos
     };
-
-    const applyOperation = () => {
-        // Aplica a operação de compra ou venda para a quantidade escolhida
-        buttonDispatch({
-            type: 'UPDATE_BUTTON_QUANTITY',
-            payload: { operation, quantity }
-        });
-    };
-
     return (
         <div 
             style={{
@@ -53,13 +43,6 @@ const BuyAndSellSection = () => {
                 <Button variant="secondary" onClick={() => handleQuantityClick(10)}>10</Button>
                 <Button variant="secondary" onClick={() => handleQuantityClick(100)}>100</Button>
             </div>
-            <Button 
-                variant={operation === 'increment' ? "success" : "danger"}
-                onClick={applyOperation} 
-                className='mt-2'
-            >
-                Aplicar {operation === 'increment' ? "Compra" : "Venda"}
-            </Button>
         </div>
     );
 };
