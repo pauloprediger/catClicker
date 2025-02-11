@@ -7,6 +7,13 @@ import SectionAchievements from '../components/SectionAchievements';
 import ShopSection from '../components/ShopSection';
 import BuyAndSellSection from '../components/BuyAndSellSection';
 
+
+const [dataFromBuyAndSellSection, setDataFromBuyAndSellSection] = useState('increment');
+
+const handleDataFromBuyAndSellSection = (data) => {
+    setDataFromBuyAndSellSection(data);
+};
+
 function MainGame() {
     return (
         <div className="bodyGame">
@@ -19,7 +26,7 @@ function MainGame() {
                 <SectionAchievements />
             </SectionGame>
             <SectionGame name="shopClicker" color="#6882B3">
-                <BuyAndSellSection />
+                <BuyAndSellSection sendDataToParent = {handleDataFromBuyAndSellSection}/>
                 <ShopSection />
             </SectionGame>
         </div>
