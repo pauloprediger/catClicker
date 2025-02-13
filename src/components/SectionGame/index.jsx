@@ -3,6 +3,8 @@ import './SectionGame.css';
 import PropTypes from 'prop-types';
 import useLightenColor from '../../hooks/useLightenColor';
 
+
+
 const SectionGame = ({ name, color, children }) => {
     const lightenColor = useLightenColor();
     const lighterColor = lightenColor(color, 0.2);
